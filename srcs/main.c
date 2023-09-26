@@ -1,7 +1,9 @@
 #include <mlx.h>
 
 typedef struct	s_data {
-	void	*img;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
@@ -16,18 +18,42 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
+void	draw_square(t_data *data, int x, int y, int size, int color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			my_mlx_pixel_put(data, x + i, y + j, color);
+			j++;
+		}
+		i++;
+	}
+}
+
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	t_data data;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								 &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	data.mlx_ptr = mlx_init();
+	data.win_ptr = mlx_new_window(data.mlx_ptr, 800, 600, "So_long");
+	data.img_ptr = mlx_new_image(data.mlx_ptr, 800, 600);
+	data.addr = mlx_get_data_addr(data.img_ptr, &data.bits_per_pixel, &data.line_length, &data.endian);
+
+	int square_size = 50;
+	int x = 350;
+	int y = 250;
+	int square_color = 0xFFFFFF;
+
+	draw_square(&data, x, y, square_size, square_color);
+
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img_ptr, 0, 0);
+	mlx_loop(data.mlx_ptr);
+
+	return (0);
 }
