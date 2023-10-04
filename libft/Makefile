@@ -21,7 +21,10 @@ ft_isalpha.c	ft_putchar_fd.c	ft_strlcpy.c \
 ft_isascii.c	ft_putendl_fd.c	ft_strlen.c	 \
 ft_isdigit.c	ft_putnbr_fd.c	ft_strmapi.c \
 ft_isprint.c	ft_putstr_fd.c	ft_strncmp.c \
-ft_itoa.c	ft_split.c	ft_strnstr.c
+ft_itoa.c	ft_split.c	ft_strnstr.c \
+ft_printf.c	ft_printhex.c ft_printnbr.c \
+ft_putstr.c	ft_putchar.c	ft_putperc.c \
+ft_putnbr.c	ft_printptr.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afrigger <afrigger@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvalerio <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 10:07:11 by afrigger          #+#    #+#             */
-/*   Updated: 2022/10/20 11:14:20 by afrigger         ###   ########.fr       */
+/*   Created: 2023/04/03 13:18:36 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/04/03 13:27:40 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static int	ft_len(int x)
 {
@@ -101,16 +101,3 @@ char	*ft_itoa(int n)
 	res = ft_array(res, len, sign, n);
 	return (res);
 }
-/*
-int main()
-{
-	int n;
-	char *str;
-
-	n = -2147483648;
-	str = ft_itoa(n);
-	printf("%s\n", str);
-	free(str);
-	printf("%s\n", str);
-	return 0;
-}*/

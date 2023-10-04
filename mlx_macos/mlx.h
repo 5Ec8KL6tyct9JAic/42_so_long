@@ -46,6 +46,10 @@
 
 #define	MLX_H
 
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+
 
 void	*mlx_init();
 /*
