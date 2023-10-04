@@ -6,7 +6,7 @@
 # include "../mlx_macos//mlx.h"
 # include "../libft/libft.h"
 
-# include "custom_letters.h"
+//# include "custom_letters.h"
 # include <fcntl.h> // Read
 # include "string.h" // Strerror
 
@@ -17,9 +17,11 @@
 # define COLLECTIBLE 'C'
 # define WALL '1'
 # define EMPTY '0'
+*/
 
 // GAME KEYWORDS
 # define ESC 65307
+/*
 # define W 119
 # define UP 65362
 # define A 97
