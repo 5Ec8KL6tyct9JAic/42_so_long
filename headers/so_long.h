@@ -3,7 +3,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx_macos//mlx.h"
+# include "../mlx_macos/mlx.h"
 # include "../libft/libft.h"
 
 //# include "custom_letters.h"
@@ -21,6 +21,27 @@
 
 // GAME KEYWORDS
 # define ESC 65307
+
+/*
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+}			t_vars;
+int my_close(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	return(0);
+}
+*/
+typedef struct s_ptr
+{
+	void	*mlx;
+	void	*win;
+}	t_ptr;
+
+int key_check(int key, t_ptr *ptr);
+
 /*
 # define W 119
 # define UP 65362

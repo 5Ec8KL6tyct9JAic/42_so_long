@@ -1,8 +1,3 @@
-GREENGREEN = \033[38;5;46m
-RED = \033[0;31m
-GREY = \033[38;5;240m
-RESET = \033[0m
-
 NAME =     so_long
 
 CC =         gcc
@@ -14,7 +9,7 @@ DIR_S =	srcs/
 CREATE_DIR_O = @mkdir -p objs
 DIR_O =	objs/
 
-SRCS_LIST =	main.c events.c
+SRCS_LIST =	main.c hook.c
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LIST}}
 
