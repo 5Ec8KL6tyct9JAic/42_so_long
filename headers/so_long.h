@@ -4,7 +4,7 @@
 # define SO_LONG_H
 
 # include "../mlx_macos/mlx.h"
-# include "../libft/libft.h"
+# include "../libs/libft/includes/libft.h"
 
 //# include "custom_letters.h"
 # include <fcntl.h> // Read
