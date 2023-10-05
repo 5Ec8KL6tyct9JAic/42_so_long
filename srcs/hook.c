@@ -10,12 +10,12 @@ int key_check(int key, t_ptr *ptr)
 {
 	if(key == ESC)
 	{
-		ft_printf("Closing window...");
+		ft_printf("Closing window... %n");
 		mlx_destroy_window(ptr->mlx, ptr->win);
 		free(ptr->mlx);
 		exit(0);
 	}
 	else
-		ft_printf("you pressed : %c", key);
+		ft_printf("you pressed : %c %n", key);
 	return(0);
 }
