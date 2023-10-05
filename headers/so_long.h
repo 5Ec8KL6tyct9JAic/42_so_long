@@ -18,29 +18,16 @@
 # define WALL '1'
 # define EMPTY '0'
 */
-
+# define ESC 53
 // GAME KEYWORDS
-# define ESC 65307
 
-/*
 typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
 }			t_vars;
-int my_close(t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	return(0);
-}
-*/
-typedef struct s_ptr
-{
-	void	*mlx;
-	void	*win;
-}	t_ptr;
-
-int key_check(int key, t_ptr *ptr);
+int my_close(t_vars *vars);
+int key_check(int key, t_vars *vars);
 
 /*
 # define W 119
