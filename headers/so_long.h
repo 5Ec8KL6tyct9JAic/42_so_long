@@ -7,8 +7,8 @@
 # include "../libs/libft/includes/libft.h"
 
 //# include "custom_letters.h"
-# include <fcntl.h> // Read
-# include "string.h" // Strerror
+//# include <fcntl.h> // Read
+//# include "string.h" // Strerror
 
 /*
 // GAME OBJECTS KEYS
