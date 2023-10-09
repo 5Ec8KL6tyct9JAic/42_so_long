@@ -7,29 +7,19 @@
 # include "../libs/libft/includes/libft.h"
 
 //# include "custom_letters.h"
-//# include <fcntl.h> // Read
-//# include "string.h" // Strerror
+# include <fcntl.h> // Read
+# include "string.h" // Strerror
 
-/*
+
 // GAME OBJECTS KEYS
 # define PLAYER 'P'
 # define EXIT 'E'
 # define COLLECTIBLE 'C'
 # define WALL '1'
 # define EMPTY '0'
-*/
+
 # define ESC 53
 // GAME KEYWORDS
-
-typedef struct s_vars
-{
-	void	*mlx;
-	void	*win;
-}			t_vars;
-int my_close(t_vars *vars);
-int key_check(int key, t_vars *vars);
-
-/*
 # define W 119
 # define UP 65362
 # define A 97
@@ -58,7 +48,7 @@ typedef struct s_game_objs
 	void	*exit_open;
 	void	*exit_close;
 	void	*wall;
-	woid	*floor;
+	void	*floor;
 	int 	img_width;
 	int 	img_height;
 }	t_game_objs;

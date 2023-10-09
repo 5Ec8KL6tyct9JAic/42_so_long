@@ -19,7 +19,18 @@ DIR_O = objs/
 CREATE_DIR_O = @mkdir -p $(DIR_O)
 
 # Listes des fichiers source
-SRCS_LIST = main.c hook.c
+SRCS_LIST = draw.c \
+			errors.c\
+			exit_actions.c\
+			free.c\
+			game_events.c\
+			game_events_utils.c\
+			game_init.c\
+			main.c\
+			map_init.c\
+			map_init_utils.c\
+			map_validate.c\
+			utils.c\
 
 # Chemins complets des fichiers source
 SRCS = $(addprefix $(DIR_S), $(SRCS_LIST))
