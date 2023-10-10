@@ -6,7 +6,7 @@
 # include "../mlx_macos/mlx.h"
 # include "../libs/libft/includes/libft.h"
 
-//# include "custom_letters.h"
+# include "../include/custom_letters.h"
 # include <fcntl.h> // Read
 # include "string.h" // Strerror
 
