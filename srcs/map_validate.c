@@ -66,3 +66,31 @@ int ft_is_wall(t_game_instance *game_init)
 	}
 	return (1);
 }
+
+//Function to check if the map is rectangula/square
+int ft_is_map_shape_valid(t_game_instance *game_init)
+{
+	if (game_init->map_init.cols_matrice <= 0
+		|| game_init->map_init.rows_matrice <= 0)
+		return (0);
+	if (game_init->map_init.size_matrice == 0)
+		return (0);
+	if (game_init->map_init.size_matrice % game_init->map_init.rows_matrice == 0
+		&& game_init->map_init.size_matrice / game_init->map_init.rows_matrice
+		== game_init->map_init.cols_matrice)
+		return (1);
+	return (0);
+}
+
+//Function to check if the map is valid
+//and returning 1 if all true, 0 if otherwise
+int ft_is_valid_map(t_game_instance *game_init)
+{
+	if(!(ft_count_map_objects(game_init)))
+		return (0);
+	if(!(ft_is_map_shape_valid(game_init)))
+		return (0);
+	if(!(ft_is_wall(game_init)))
+		return (0);
+	return (1);
+}
