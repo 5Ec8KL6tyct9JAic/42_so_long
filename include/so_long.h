@@ -208,6 +208,21 @@ int			ft_map_draw(t_game_instance *game_init);
 void		ft_map_continues(t_game_instance *game_init, int column, int row);
 // Function to sets the image of an object in the corresponding cell on game
 void		ft_set(t_game_instance *game_init, void *img, int wid, int hgt); */
+// --------------------- I WANT TO BREAK [FREE]
+// Function to free the matrice[][]
+void		ft_free_map(t_game_instance *game_init);
+// Function to free all images.xpm
+void		ft_free_img(t_game_instance *game_init);
+// Function to free the name in window
+void		ft_cleanup(t_game_instance *game_init);
+// --------------------- CUSTOM ERRORS MESSAGE
+// Function to returns feedback for errors when init
+void		ft_error_init(int n);
+// Function to returns feedback for errors with map
+void		ft_error_map(int n);
+// --------------------- AUXILIARY FUNCTIONS
+// Function to compares two strings character (in ASCII value)
+int			ft_strcmp(const char *s1, const char *s2);
 
 
 
