@@ -27,7 +27,7 @@ int	ft_check_keyboard(int key, t_game_instance *game_init)
 	return (0);
 }
 
-// Just a to be continue for keyboard
+
 int	ft_non_special(int key, t_game_instance *game_init)
 {
 	if (key == ESC)

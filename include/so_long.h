@@ -97,14 +97,14 @@ typedef struct s_map_data
 //MAIN GAME CONTROLLER
 typedef struct s_game_instance
 {
-	void				*mlx;
+	void				*mlx_ptr;
 	void				*win_ptr;
 	int 				argc_tmp;
 	char				**argv_tmp;
 	t_map_data			map_init;
 	t_game_positions 	positions_init;
 	t_game_data 		game_data;
-	t_game_resolutions 	resolutions_int;
+	t_game_resolutions 	resolutions_init;
 	t_game_objs			game_objs;
 }		t_game_instance;
 
