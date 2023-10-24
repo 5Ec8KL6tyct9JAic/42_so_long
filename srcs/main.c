@@ -29,7 +29,7 @@ void	ft_struct_init(t_game_instance *game_init)
 	game_init->map_init.matrice = NULL;
 	game_init->mlx_ptr = NULL;
 	game_init->win_ptr = NULL;
-	game_init->resolutions_init.settings_name_map = NULL;
+	game_init->resolutions_init.settings_name_maps = NULL;
 	game_init->resolutions_init.settings_name_window = NULL;
 	objects = malloc(sizeof(t_game_objs));
 	if (objects == NULL)

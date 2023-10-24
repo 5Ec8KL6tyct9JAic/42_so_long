@@ -1,107 +1,117 @@
-# Nom du fichier cible
+# The name of the executable
 NAME = so_long
+# Path to the directory where the executable will be stored
+BINS_PATH = ./bin/
+NAME = ${BINS_PATH}so_long
 
-# Compilateur
-CC = gcc
-
-# Options de compilation
+# Compilation flags
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
+# Linker flags : 'libft', 'mlx' and 'mlx' for Linux, 'lib' for X Window System, 'xext' for a single extension, and 'lm' for the math library
+LFLAGS = -lmlx -framework OpenGl -framework Appkit
 
-# Commande pour supprimer des fichiers/dossiers
-RM = rm -rf
+# Command to remove files/directories
+REMOVE = rm -rf
+# Command to create directories
+MKDIR = mkdir -p
 
-# Répertoires
-DIR_H = headers/
-DIR_S = srcs/
-DIR_O = objs/
+# Path variables
+SRCS_PATH =  ./srcs/
+OBJS_PATH = ./objs/
+LIBS_PATH = ./libs/
+BINS_PATH = ./bin/
+HEADER_PATH = ./include/
 
-# Crée le répertoire objs s'il n'existe pas
-CREATE_DIR_O = @mkdir -p $(DIR_O)
+# Path to libraries
+LIBFT_PATH = $(LIBS_PATH)libft/
+MLX_PATH = $(LIBS_PATH)mlx_macos/
 
-# Listes des fichiers source
-SRCS_LIST = draw.c \
-			errors.c\
-			exit_actions.c\
-			free.c\
-			game_events.c\
-			game_events_utils.c\
-			game_init.c\
-			main.c\
-			map_init.c\
-			map_init_utils.c\
-			map_validate.c\
-			utils.c\
+# Source files
+SRCS_FILES = map_validate.c \
+	map_init.c \
+	utils.c \
+	errors.c \
+	free.c \
+	game_init.c \
+	game_events.c \
+	game_events_utils.c \
+	draw.c \
+	exit_actions.c \
+	map_init_utils.c \
 
-# Chemins complets des fichiers source
-SRCS = $(addprefix $(DIR_S), $(SRCS_LIST))
+# Object files
+OBJS_FILES = $(patsubst %.c, $(OBJS_PATH)%.o, $(SRCS_FILES))
+OBJECTS = $(addprefix $(OBJS_PATH), $(OBJS_FILES))
 
-# Transformation des fichiers source en fichiers objet
-OBJS = $(SRCS:$(DIR_S)%.c=$(DIR_O)%.o)
+# Compiler flags to include library headers
+INCLUDES = -I $(LIBFT_PATH) -I $(MLX_PATH)
+# Compiler flags to link to libraries
+PATH_LIBS = -L$(LIBFT_PATH) -L$(MLX_PATH)
 
-# Compilation et liaison avec la bibliothèque Libft
-DIR_LIBFT = libs/libft/
-LIBFT_INC = -I $(DIR_LIBFT)
-LIBFT = $(DIR_LIBFT)libft.a
-FT_LNK = -L $(DIR_LIBFT) -lft
+# Color codes for terminal output
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
-# Compilation et liaison avec la bibliothèque MiniLibX
-ifeq ($(shell uname), Linux)
-    DIR_MLX = mlx_linux/
-    MLX_LNK = -L $(DIR_MLX) -lmlx -lXext -lX11 -lbsd -lm
-else
-    DIR_MLX = mlx_macos/
-    MLX_LNK = -L $(DIR_MLX) -l mlx -framework OpenGL -framework AppKit
-endif
-MLX_INC = -I $(DIR_MLX)
-MLX = $(DIR_MLX)libmlx.a
+# The default target calling for the executable
+all : $(NAME)
 
-LIBS = $(FT_LNK) $(MLX_LNK)
+# Target for cloning the minilibx library into libs/ folder
+call_mlx:
+	@read -p "Clone via SSH (s) or HTTP (h)? " clone_method; \
+	if [ $$clone_method = "s" ]; then \
+		echo "$(GREEN)Cloning 'mlx' via SSH into 'libs/mlx'...$(DEF_COLOR)"; \
+		git clone git@github.com:42Paris/minilibx-linux.git libs/mlx; \
+	elif [ $$clone_method = "h" ]; then \
+		echo "$(GREEN)Cloning 'mlx' via HTTP into 'libs/mlx'...$(DEF_COLOR)"; \
+		git clone https://github.com/42Paris/minilibx-linux libs/mlx; \
+	else \
+		echo "$(RED)Invalid option. Please enter 's' for SSH or 'h' for HTTP.$(DEF_COLOR)"; \
+		exit 1; \
+	fi
 
-# Compilation de l'exécutable
-$(NAME): $(LIBFT) $(MLX) $(OBJS)
-	@echo "[$(NAME)]: SO_LONG Objects were created"
-	$(CC) $(OBJS) $(LIBS) -o $(NAME)
+# The target to build the mandatory part
+$(NAME) : $(OBJS_FILES)
+	$(MKDIR) $(BINS_PATH)
+	make -C $(LIBFT_PATH) --no-print-directory
+	make -C $(MLX_PATH) --no-print-directory
+	$(CC) $(CFLAGS) $(OBJS_FILES) -o $(NAME) $(SRCS_PATH)main.c $(PATH_LIBS) $(LFLAGS)
+	@echo "$(GREEN)______________	  ___   _____________________"
+	@echo "$(GREEN)7     77     7	  7  7   7     77     77     7"
+	@echo "$(GREEN)|  ___!|  7  |	  |  |   |  7  ||  _  ||   __!"
+	@echo "$(GREEN)!__   7|  |  |	  |  !___|  |  ||  7  ||  !  7"
+	@echo "$(GREEN)7     ||  !  |____|     7|  !  ||  |  ||     |"
+	@echo "$(GREEN)!_____!!_____!____!_____!!_____!!__!__!!_____!"
+	@echo "$(GREEN)◞( ､ᐛ)､＿/ The Makefile of [SO_LONG] has been compiled!$(DEF_COLOR)"
+	@echo "$(YELLOW)\n !Use this command in the folder root: ./bin/so_long rscs/maps/valids/<map_name>.ber\n$(DEF_COLOR)"
 
-# Création de la bibliothèque Libft
-$(LIBFT):
-	@echo "[$(NAME)]: Creating Libft..."
-	$(MAKE) -C $(@D)
-	@echo "[$(NAME)]: Libft Objects were created"
+# Compiles C source files into object files
+$(OBJS_PATH)%.o : $(SRCS_PATH)%.c
+	$(MKDIR) $(OBJS_PATH)
+	$(CC) $(CFLAGS) -I $(HEADER_PATH) -c $< -o $@
 
-# Création de la bibliothèque MiniLibX
-$(MLX):
-	@echo "[$(NAME)]: Creating MLX..."
-	$(MAKE) -C $(@D)
-	@echo "[$(NAME)]: MLX Objects were created"
+# Cleans object files and dependencies
+clean :
+	@$(REMOVE) $(OBJS_PATH)
+	@make clean -C $(LIBFT_PATH) --no-print-directory
+	@make clean -C $(MLX_PATH) --no-print-directory
+	@echo "$(BLUE)[SO_LONG] Object files cleaned!$(DEF_COLOR)"
 
-# Règle générique pour la compilation de fichiers source en fichiers objet
-$(DIR_O)%.o: $(DIR_S)%.c
-	@$(CREATE_DIR_O)
-	$(CC) $(CFLAGS) $(LIBFT_INC) $(MLX_INC) -I $(DIR_H) -o $@ -c $<
+# Cleans everything generated by the Makefile
+fclean : clean
+	@$(REMOVE) $(NAME) $(BINS_PATH) $(OBJS_PATH)
+	@make fclean -C $(LIBFT_PATH) --no-print-directory
+	@make clean -C $(MLX_PATH) --no-print-directory
+	@echo "$(BLUE)[SO_LONG] Executable files and directories cleaned!$(DEF_COLOR)"
 
-# Nettoyage des fichiers objets
-clean:
-	@echo "[$(NAME)]: Cleaning SO_LONG Objects..."
-	$(RM) $(OBJS)
-	$(RM) $(DIR_O)
-	@echo "[$(NAME)]: SO_LONG Objects were cleaned"
+# Cleans everything generated by the Makefile and rebuild all
+re : fclean all
 
-# Nettoyage complet (fichiers objets et exécutable)
-fclean: clean
-	@echo "[$(NAME)]: Cleaning SO_LONG..."
-	$(RM) $(NAME)
-	@echo "[$(NAME)]: SO_LONG Executable was cleaned"
-
-# Nettoyage des bibliothèques Libft et MiniLibX
-libclean:
-	@echo "[$(NAME)]: Cleaning Libft..."
-	$(MAKE) -sC $(DIR_LIBFT) fclean
-	@echo "[$(NAME)]: Libft Objects were cleaned"
-	@echo "[$(NAME)]: Cleaning MLX..."
-	$(MAKE) -sC $(DIR_MLX) clean
-	@echo "[$(NAME)]: MLX Objects were cleaned"
-
-# Règle pour tout nettoyer puis reconstruire
-re: fclean all
-
-.PHONY: all clean fclean re libclean
+# Phony targets
+.PHONY : all clean fclean re libft mlx

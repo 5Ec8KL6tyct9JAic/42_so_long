@@ -3,12 +3,12 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx_macos/mlx.h"
+# include "../libs/mlx_macos/mlx.h"
 # include "../libs/libft/includes/libft.h"
 
 # include "../include/custom_letters.h"
 # include <fcntl.h> // Read
-# include "string.h" // Strerror
+# include <string.h> // Strerror
 
 
 // GAME OBJECTS KEYS
@@ -77,8 +77,8 @@ typedef struct s_game_data
 typedef struct s_game_resolutions
 {
 	int 	settings_map_width;
-	int 	setting_map_height;
-	char 	*settings_name_window,
+	int 	settings_map_height;
+	char 	*settings_name_window;
 	char	*settings_name_maps;
 }	t_game_resolutions;
 
@@ -89,7 +89,7 @@ typedef struct s_map_data
 	int 				cols_matrice;
 	int 				rows_matrice;
 	int 				size_matrice;
-	char				*matrice;
+	char				**matrice;
 	t_game_resolutions resolutions;
 	t_game_positions	positions;
 }	t_map_data;
@@ -157,8 +157,6 @@ int			ft_events_pressed(t_game_instance *game_init, int column, int row);
 void		ft_win(t_game_instance *game_init);
 // Function to prints the current number of movements on the terminal shell
 int			ft_print_shell(t_game_instance *game_init);
-// Function to frees all the memory allocated during the game and exit
-int			ft_exit_program(t_game_instance *game_init);
 // Function to frees all the memory allocated and reset game
 void		ft_reset_game(t_game_instance *game_init);
 // Function to finds the player position and performs actions
@@ -185,8 +183,6 @@ int			ft_count_map_objects(t_game_instance *game_init);
 // Function checks if the map has at 1 player, 1 exit >= collectible
 int			ft_have_requires(t_game_instance *game_init);
 // --------------------- GAME EVENTS/ACTIONS + GRAPHICS
-// Function to call for events
-void		ft_gameplay_start(t_game_instance *game_init);
 // Function to takes a keyboard input and performs corresponding actions
 int			ft_events_pressed(t_game_instance *game_init, int column, int row);
 void		ft_win(t_game_instance *game_init);

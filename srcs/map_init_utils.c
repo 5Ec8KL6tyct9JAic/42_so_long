@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-int ft_map_extensions(char *map)
+int ft_map_extension(char *map)
 {
 	char		*extension;
 	char		*file_extension;

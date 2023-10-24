@@ -17,7 +17,7 @@ int ft_read_map(int fd, t_game_instance *game_init)
 	char	*buffer;
 
 	game_init->map_init.matrice
-	= ft_calloc(game_init->map_init.firt_read_matrice + 1, sizeof(char *));
+	= ft_calloc(game_init->map_init.first_read_matrice + 1, sizeof(char *));
 	if (!game_init->map_init.matrice)
 	{
 		ft_free_map(game_init);

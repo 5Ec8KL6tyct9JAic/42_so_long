@@ -17,7 +17,7 @@ void	ft_locate_player(t_game_instance *game_init)
 				game_init->positions_init.player_col = col;
 				return ;
 			}
-			col++,
+			col++;
 		}
 		row++;
 	}

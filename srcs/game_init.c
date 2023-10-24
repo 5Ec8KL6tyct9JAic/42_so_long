@@ -16,7 +16,23 @@ void	ft_check_img(t_game_instance *game_init, void **image, char *path)
 void	ft_img_init(t_game_instance *game_init)
 {
 	ft_check_img(game_init, &game_init->game_objs.player_up,
-				 "")
+				 "rscs/textures/Player/Chat_devant_00.xpm");
+	ft_check_img(game_init, &game_init->game_objs.player_down,
+				 "rscs/textures/Player/Chat_descends_00.xpm");
+	ft_check_img(game_init, &game_init->game_objs.player_right,
+				 "rscs/textures/Player/Chat_Droite_00.xpm");
+	ft_check_img(game_init, &game_init->game_objs.player_left,
+				 "rscs/textures/Player/Chat_gauche_00.xpm");
+	ft_check_img(game_init, &game_init->game_objs.collectible,
+				 "rscs/textures/Collectibles/boule-de-laine.xpm");
+	ft_check_img(game_init, &game_init->game_objs.floor,
+				 "rscs/textures/Tiles/Sol_en_bois.xpm");
+	ft_check_img(game_init, &game_init->game_objs.exit_open,
+				 "rscs/textures/Exit/Exit_open.xpm");
+	ft_check_img(game_init, &game_init->game_objs.exit_close,
+				 "rscs/textures/Exit/Exit_close.xpm");
+	ft_check_img(game_init, &game_init->game_objs.wall,
+				 "rscs/textures/Tiles/Mur_de_pierre.xpm");
 }
 
 void	ft_initialize_game(t_game_instance *game_init)
@@ -28,7 +44,7 @@ void	ft_initialize_game(t_game_instance *game_init)
 	ft_img_init(game_init);
 	game_init->game_objs.player = game_init->game_objs.player_down;
 	game_init->win_ptr = mlx_new_window(game_init->mlx_ptr,
-										game_init->map_init.resolutions.settigs_map_width
+										game_init->map_init.resolutions.settings_map_width
 										* CELL_SIZE, game_init->map_init.resolutions.settings_map_height
 										* CELL_SIZE, "Meowlicious");
 	if (game_init->win_ptr == NULL)
