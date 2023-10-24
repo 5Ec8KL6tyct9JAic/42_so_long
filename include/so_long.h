@@ -207,10 +207,10 @@ void		ft_check_img(t_game_instance *game_init, void **image, char *path);
 int			ft_map_draw(t_game_instance *game_init);
 void		ft_map_continues(t_game_instance *game_init, int column, int row);
 // Function to sets the image of an object in the corresponding cell on game
-void		ft_set(t_game_instance *game_init, void *img, int wid, int hgt); */
+void		ft_set(t_game_instance *game_init, void *img, int wid, int hgt);
 // --------------------- I WANT TO BREAK [FREE]
 // Function to free the matrice[][]
-void		ft_free_map(t_game_instance *game_init);
+void	ft_free_map(t_game_instance *game_init);
 // Function to free all images.xpm
 void		ft_free_img(t_game_instance *game_init);
 // Function to free the name in window
