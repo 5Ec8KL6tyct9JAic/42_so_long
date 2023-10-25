@@ -16,7 +16,7 @@ NAME = libft.a
 CC = gcc
 
 # Options de compilation
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Utilitaire d'archivage
 AR = ar rcs
@@ -26,46 +26,47 @@ RM = rm -rf
 
 # Liste des fichiers source
 SOURCES = sources/conversions/ft_atoi.c \
-	sources/conversions/ft_itoa.c \
-	sources/file_descriptor/ft_putchar_fd.c \
-	sources/file_descriptor/ft_putendl_fd.c \
-	sources/file_descriptor/ft_putnbr_fd.c \
-	sources/file_descriptor/ft_putstr_fd.c \
-	sources/manipulate_characters/ft_isalnum.c \
-	sources/manipulate_characters/ft_isalpha.c \
-	sources/manipulate_characters/ft_isascii.c \
-	sources/manipulate_characters/ft_isdigit.c \
-	sources/manipulate_characters/ft_isprint.c \
-	sources/manipulate_characters/ft_tolower.c \
-	sources/manipulate_characters/ft_toupper.c \
-	sources/manipulate_characters/ft_putchar.c \
-	sources/manipulate_characters/ft_putnbr.c \
-	sources/manipulate_memory/ft_bzero.c \
-	sources/manipulate_memory/ft_calloc.c \
-	sources/manipulate_memory/ft_memchr.c \
-	sources/manipulate_memory/ft_memcmp.c \
-	sources/manipulate_memory/ft_memcpy.c \
-	sources/manipulate_memory/ft_memmove.c \
-	sources/manipulate_memory/ft_memset.c \
-	sources/manipulate_memory/ft_strdup.c \
-	sources/manipulate_strings/ft_split.c \
-	sources/manipulate_strings/ft_strchr.c \
-	sources/manipulate_strings/ft_striteri.c \
-	sources/manipulate_strings/ft_strjoin.c \
-	sources/manipulate_strings/ft_strlcat.c \
-	sources/manipulate_strings/ft_strlcpy.c \
-	sources/manipulate_strings/ft_strlen.c \
-	sources/manipulate_strings/ft_strmapi.c \
-	sources/manipulate_strings/ft_strncmp.c \
-	sources/manipulate_strings/ft_strnstr.c \
-	sources/manipulate_strings/ft_strrchr.c \
-	sources/manipulate_strings/ft_strtrim.c \
-	sources/manipulate_strings/ft_substr.c \
-	sources/manipulate_strings/ft_putstr.c \
-	sources/manipulate_strings/ft_printptr.c \
-	sources/manipulate_strings/ft_printhex.c \
-	sources/get_next_line/get_next_line.c \
-	sources/ft_printf/ft_printf.c \
+    sources/conversions/ft_itoa.c \
+    sources/file_descriptor/ft_putchar_fd.c \
+    sources/file_descriptor/ft_putendl_fd.c \
+    sources/file_descriptor/ft_putnbr_fd.c \
+    sources/file_descriptor/ft_putstr_fd.c \
+    sources/manipulate_characters/ft_isalnum.c \
+    sources/manipulate_characters/ft_isalpha.c \
+    sources/manipulate_characters/ft_isascii.c \
+    sources/manipulate_characters/ft_isdigit.c \
+    sources/manipulate_characters/ft_isprint.c \
+    sources/manipulate_characters/ft_tolower.c \
+    sources/manipulate_characters/ft_toupper.c \
+    sources/manipulate_characters/ft_putchar.c \
+    sources/manipulate_characters/ft_putnbr.c \
+    sources/manipulate_memory/ft_bzero.c \
+    sources/manipulate_memory/ft_calloc.c \
+    sources/manipulate_memory/ft_memchr.c \
+    sources/manipulate_memory/ft_memcmp.c \
+    sources/manipulate_memory/ft_memcpy.c \
+    sources/manipulate_memory/ft_memmove.c \
+    sources/manipulate_memory/ft_memset.c \
+    sources/manipulate_memory/ft_strdup.c \
+    sources/manipulate_strings/ft_split.c \
+    sources/manipulate_strings/ft_strchr.c \
+    sources/manipulate_strings/ft_striteri.c \
+    sources/manipulate_strings/ft_strjoin.c \
+    sources/manipulate_strings/ft_strlcat.c \
+    sources/manipulate_strings/ft_strlcpy.c \
+    sources/manipulate_strings/ft_strlen.c \
+    sources/manipulate_strings/ft_strmapi.c \
+    sources/manipulate_strings/ft_strncmp.c \
+    sources/manipulate_strings/ft_strnstr.c \
+    sources/manipulate_strings/ft_strrchr.c \
+    sources/manipulate_strings/ft_strtrim.c \
+    sources/manipulate_strings/ft_substr.c \
+    sources/manipulate_strings/ft_putstr.c \
+    sources/manipulate_strings/ft_printptr.c \
+    sources/manipulate_strings/ft_printhex.c \
+    sources/manipulate_strings/ft_printnbr.c \
+    sources/get_next_line/get_next_line.c \
+    sources/ft_printf/ft_printf.c \
 
 # Transformation des fichiers source en fichiers objet
 OBJECTS = $(SOURCES:.c=.o)
@@ -79,7 +80,7 @@ BLUE = \033[0;94m
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@ARCHFLAGS="-arch arm64" $(AR) $@ $(OBJECTS)
+	@$(AR) $@ $(OBJECTS)
 	@echo "$(GREEN)◞( ､ᐛ)､＿/ Le Makefile de [LIBFT] a été compilé avec succès!$(DEF_COLOR)"
 
 # Règle générique pour la compilation de fichiers source en fichiers objet

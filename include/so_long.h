@@ -18,23 +18,6 @@
 # define WALL '1'
 # define EMPTY '0'
 
-// GAME KEYWORDS
-# define ESC 65307
-# define W 119
-# define UP 65362
-# define A 97
-# define LEFT 65361
-# define S 115
-# define DOWN 65364
-# define D 100
-# define RIGHT 65363
-# define RESTART 114
-
-# define MAX_FILES 1
-
-# define TRUE 1
-# define FALSE 0
-
 # define CELL_SIZE 32
 
 // GAME OBJECTS KEYS
@@ -45,23 +28,21 @@
 # define EMPTY '0'
 
 // GAME KEYWORDS
-# define ESC 65307
+# define ESC 53
 # define W 119
-# define UP 65362
+# define UP 126
 # define A 97
-# define LEFT 65361
+# define LEFT 123
 # define S 115
-# define DOWN 65364
+# define DOWN 125
 # define D 100
-# define RIGHT 65363
+# define RIGHT 124
 # define RESTART 114
 
 # define MAX_FILES 1
 
 # define TRUE 1
 # define FALSE 0
-
-# define CELL_SIZE 32
 
 // OBJECTS : IMAGES
 typedef struct s_game_objs

@@ -2,13 +2,13 @@ NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -arch arm64
 
 MLX_PATH = ./libs/mlx_macos
 
 MLX_LIB = $(MLX_PATH)/libmlx.a
 
-MLX_FLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit -arch arm64
 
 LIBFT_PATH = ./libs/libft
 
@@ -32,8 +32,10 @@ CFILES = \
 		srcs/game_events_utils.c\
 		srcs/game_init.c\
 		srcs/map_init.c\
+		srcs/map_init_utils.c\
 		srcs/map_validate.c\
 		srcs/utils.c\
+		srcs/main.c\
 
 OBJECTS = $(CFILES:.c=.o)
 
