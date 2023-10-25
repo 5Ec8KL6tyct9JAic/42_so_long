@@ -24,60 +24,48 @@ AR = ar rcs
 # Commande pour supprimer des fichiers/dossiers
 RM = rm -rf
 
-# Répertoires des sources
-SRCDIR = sources
-CONVDIR = $(SRCDIR)/conversions
-FDDIR = $(SRCDIR)/file_descriptor
-CHARDIR = $(SRCDIR)/manipulate_characters
-MEMDIR = $(SRCDIR)/manipulate_memory
-STRDIR = $(SRCDIR)/manipulate_strings
-GNLDIR = $(SRCDIR)/get_next_line
-PRINTFDIR = $(SRCDIR)/ft_printf
-
 # Liste des fichiers source
-SOURCES = \
-	$(CONVDIR)/ft_atoi.c \
-	$(CONVDIR)/ft_itoa.c \
-	$(FDDIR)/ft_putchar_fd.c \
-	$(FDDIR)/ft_putendl_fd.c \
-	$(FDDIR)/ft_putnbr_fd.c \
-	$(FDDIR)/ft_putstr_fd.c \
-	$(CHARDIR)/ft_isalnum.c \
-	$(CHARDIR)/ft_isalpha.c \
-	$(CHARDIR)/ft_isascii.c \
-	$(CHARDIR)/ft_isdigit.c \
-	$(CHARDIR)/ft_isprint.c \
-	$(CHARDIR)/ft_tolower.c \
-	$(CHARDIR)/ft_toupper.c \
-	$(CHARDIR)/ft_putchar.c \
-	$(CHARDIR)/ft_putnbr.c \
-	$(MEMDIR)/ft_bzero.c \
-	$(MEMDIR)/ft_calloc.c \
-	$(MEMDIR)/ft_memchr.c \
-	$(MEMDIR)/ft_memcmp.c \
-	$(MEMDIR)/ft_memcpy.c \
-	$(MEMDIR)/ft_memmove.c \
-	$(MEMDIR)/ft_memset.c \
-	$(MEMDIR)/ft_strdup.c \
-	$(STRDIR)/ft_split.c \
-	$(STRDIR)/ft_strchr.c \
-	$(STRDIR)/ft_striteri.c \
-	$(STRDIR)/ft_strjoin.c \
-	$(STRDIR)/ft_strlcat.c \
-	$(STRDIR)/ft_strlcpy.c \
-	$(STRDIR)/ft_strlen.c \
-	$(STRDIR)/ft_strmapi.c \
-	$(STRDIR)/ft_strncmp.c \
-	$(STRDIR)/ft_strnstr.c \
-	$(STRDIR)/ft_strrchr.c \
-	$(STRDIR)/ft_strtrim.c \
-	$(STRDIR)/ft_substr.c \
-	$(STRDIR)/ft_putstr.c \
-	$(STRDIR)/ft_printptr.c \
-	$(STRDIR)/ft_printhex.c \
-	$(STRDIR)/ft_printnbr.c \
-	$(GNLDIR)/get_next_line.c \
-	$(PRINTFDIR)/ft_printf.c
+SOURCES = sources/conversions/ft_atoi.c \
+	sources/conversions/ft_itoa.c \
+	sources/file_descriptor/ft_putchar_fd.c \
+	sources/file_descriptor/ft_putendl_fd.c \
+	sources/file_descriptor/ft_putnbr_fd.c \
+	sources/file_descriptor/ft_putstr_fd.c \
+	sources/manipulate_characters/ft_isalnum.c \
+	sources/manipulate_characters/ft_isalpha.c \
+	sources/manipulate_characters/ft_isascii.c \
+	sources/manipulate_characters/ft_isdigit.c \
+	sources/manipulate_characters/ft_isprint.c \
+	sources/manipulate_characters/ft_tolower.c \
+	sources/manipulate_characters/ft_toupper.c \
+	sources/manipulate_characters/ft_putchar.c \
+	sources/manipulate_characters/ft_putnbr.c \
+	sources/manipulate_memory/ft_bzero.c \
+	sources/manipulate_memory/ft_calloc.c \
+	sources/manipulate_memory/ft_memchr.c \
+	sources/manipulate_memory/ft_memcmp.c \
+	sources/manipulate_memory/ft_memcpy.c \
+	sources/manipulate_memory/ft_memmove.c \
+	sources/manipulate_memory/ft_memset.c \
+	sources/manipulate_memory/ft_strdup.c \
+	sources/manipulate_strings/ft_split.c \
+	sources/manipulate_strings/ft_strchr.c \
+	sources/manipulate_strings/ft_striteri.c \
+	sources/manipulate_strings/ft_strjoin.c \
+	sources/manipulate_strings/ft_strlcat.c \
+	sources/manipulate_strings/ft_strlcpy.c \
+	sources/manipulate_strings/ft_strlen.c \
+	sources/manipulate_strings/ft_strmapi.c \
+	sources/manipulate_strings/ft_strncmp.c \
+	sources/manipulate_strings/ft_strnstr.c \
+	sources/manipulate_strings/ft_strrchr.c \
+	sources/manipulate_strings/ft_strtrim.c \
+	sources/manipulate_strings/ft_substr.c \
+	sources/manipulate_strings/ft_putstr.c \
+	sources/manipulate_strings/ft_printptr.c \
+	sources/manipulate_strings/ft_printhex.c \
+	sources/get_next_line/get_next_line.c \
+	sources/ft_printf/ft_printf.c \
 
 # Transformation des fichiers source en fichiers objet
 OBJECTS = $(SOURCES:.c=.o)

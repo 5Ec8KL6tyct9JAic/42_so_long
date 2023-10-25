@@ -31,13 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-int main()
-{
-	char c = '\0';
-	char str[] = "123456789";
-	char *res;
-	printf("%s\n", str);
-	res = ft_strrchr(str, c);
-	printf("%s\n", res);
-}*/

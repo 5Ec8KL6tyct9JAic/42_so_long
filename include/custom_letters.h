@@ -32,4 +32,3 @@
 # define UNDERLINE_WHITE "\033[4;37m"
 
 #endif
-

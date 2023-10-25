@@ -19,7 +19,7 @@ void	ft_reset_game(t_game_instance *game_init)
 	ft_free_img(game_init);
 	ft_free_map(game_init);
 	free(game_init->resolutions_init.settings_name_window);
-	free(game_init->resolutions_init.settings_name_maps);
+	free(game_init->resolutions_init.settings_name_map);
 	mlx_destroy_window(game_init->mlx_ptr, game_init->win_ptr);
 	free(game_init->mlx_ptr);
 	main(game_init->argc_tmp, game_init->argv_tmp);
@@ -33,9 +33,9 @@ void	ft_cleanup(t_game_instance *game_init)
 		free(game_init->resolutions_init.settings_name_window);
 		game_init->resolutions_init.settings_name_window = NULL;
 	}
-	if (game_init->resolutions_init.settings_name_maps != NULL)
+	if (game_init->resolutions_init.settings_name_map != NULL)
 	{
-		free(game_init->resolutions_init.settings_name_maps);
-		game_init->resolutions_init.settings_name_maps = NULL;
+		free(game_init->resolutions_init.settings_name_map);
+		game_init->resolutions_init.settings_name_map = NULL;
 	}
 }
