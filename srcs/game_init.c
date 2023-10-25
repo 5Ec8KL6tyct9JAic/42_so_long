@@ -16,23 +16,23 @@ void	ft_check_img(t_game_instance *game_init, void **image, char *path)
 void	ft_img_init(t_game_instance *game_init)
 {
 	ft_check_img(game_init, &game_init->game_objs.player_up,
-				 "rscs/textures/Player/Chat_devant_00.xpm");
+				 "rscs/textures/Player/Chat_haut.xpm");
 	ft_check_img(game_init, &game_init->game_objs.player_down,
-				 "rscs/textures/Player/Chat_descends_00.xpm");
+				 "rscs/textures/Player/Chat_bas.xpm");
 	ft_check_img(game_init, &game_init->game_objs.player_right,
-				 "rscs/textures/Player/Chat_Droite_00.xpm");
+				 "rscs/textures/Player/Chat_droite.xpm");
 	ft_check_img(game_init, &game_init->game_objs.player_left,
 				 "rscs/textures/Player/Chat_gauche_00.xpm");
 	ft_check_img(game_init, &game_init->game_objs.collectible,
-				 "rscs/textures/Collectibles/boule-de-laine.xpm");
+				 "rscs/textures/Collectibles/.xpm");
 	ft_check_img(game_init, &game_init->game_objs.floor,
-				 "rscs/textures/Tiles/Sol_en_bois.xpm");
+				 "rscs/textures/Tiles/Grass.xpm");
 	ft_check_img(game_init, &game_init->game_objs.exit_open,
-				 "rscs/textures/Exit/Exit_open.xpm");
+				 "rscs/textures/Exit/chest_open.xpm");
 	ft_check_img(game_init, &game_init->game_objs.exit_close,
-				 "rscs/textures/Exit/Exit_close.xpm");
+				 "rscs/textures/Exit/chest_close.xpm");
 	ft_check_img(game_init, &game_init->game_objs.wall,
-				 "rscs/textures/Tiles/Mur_de_pierre.xpm");
+				 "rscs/textures/Tiles/golden_pyramid.xpm");
 }
 
 void	ft_initialize_game(t_game_instance *game_init)
