@@ -24,7 +24,7 @@ void	ft_img_init(t_game_instance *game_init)
 	ft_check_img(game_init, &game_init->game_objs.player_left,
 				 "rscs/textures/Player/Chat_gauche_00.xpm");
 	ft_check_img(game_init, &game_init->game_objs.collectible,
-				 "rscs/textures/Collectibles/.xpm");
+				 "rscs/textures/Collectibles/collectible.xpm");
 	ft_check_img(game_init, &game_init->game_objs.floor,
 				 "rscs/textures/Tiles/Grass.xpm");
 	ft_check_img(game_init, &game_init->game_objs.exit_open,
