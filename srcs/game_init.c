@@ -22,7 +22,7 @@ void	ft_img_init(t_game_instance *game_init)
 	ft_check_img(game_init, &game_init->game_objs.player_right,
 				 "rscs/textures/Player/Chat_droite.xpm");
 	ft_check_img(game_init, &game_init->game_objs.player_left,
-				 "rscs/textures/Player/Chat_gauche_00.xpm");
+				 "rscs/textures/Player/Chat_gauche.xpm");
 	ft_check_img(game_init, &game_init->game_objs.collectible,
 				 "rscs/textures/Collectibles/collectible.xpm");
 	ft_check_img(game_init, &game_init->game_objs.floor,

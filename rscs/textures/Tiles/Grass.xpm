@@ -39,5 +39,4 @@ static char *Grass[] = {
 "O  X O.OX   o   O  X O.OX   o.  ",
 ".OO X .O.  OO XO.OO X .O.  O .  ",
 " X..X . .X X.OX. X..X . .X  .  .",
-"  X.  X  X  X.    X.  X  X  .  ."
-};
+"  X.  X  X  X.    X.  X  X  .  ."};

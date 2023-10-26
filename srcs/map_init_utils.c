@@ -16,7 +16,7 @@ int ft_map_extension(char *map)
 	}
 	else if (!file_extension || !ft_strcmp(file_extension, ""))
 		return (0);
-	else if (file_extension && !ft_strcmp(file_extension, extension))
+	else if (!ft_strcmp(file_extension, extension))
 	{
 		if (file_count >= MAX_FILES)
 			return (0);

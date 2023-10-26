@@ -34,7 +34,6 @@ int	ft_read_count_map(char *map)
 	int	fd;
 	int	count;
 
-	count = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		return (0);

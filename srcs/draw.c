@@ -39,4 +39,6 @@ void	ft_map_continues(t_game_instance *game_init, int column, int row)
 // Function to set the image in the corresponding cell on the game board
 void ft_set(t_game_instance *game_init, void *img, int wid, int hgt)
 {
-	mlx_put_image_to_window(game_init->mlx_ptr, game_init->win_ptr, img, wid * CELL_SIZE, hgt * CELL_SIZE);
+	mlx_put_image_to_window(game_init->mlx_ptr, game_init->win_ptr,
+							img, wid * CELL_SIZE, hgt * CELL_SIZE);
+}

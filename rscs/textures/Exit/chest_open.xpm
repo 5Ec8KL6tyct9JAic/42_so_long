@@ -47,5 +47,4 @@ static char *chest_open[] = {
 "= OOOOOOOOOOO*   %OOOOOOOOOOOO =",
 "= OOOOOOOOOOO**%%%OOOOOOOOOOOO =",
 "= oooooooooooXXXXXoooooooooooo =",
-"=     ......................   ="
-};
+"=     ......................   ="};
