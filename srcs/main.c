@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:27:32 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:39:02 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-int 	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game_instance game_init;
+	t_game_instance	game_init;
 
 	ft_struct_init(&game_init);
 	if (argc != 2)
@@ -18,12 +30,12 @@ int 	main(int argc, char **argv)
 	else
 		ft_error_map(61);
 	ft_exit_program(&game_init);
-	return	(0);
+	return (0);
 }
 
 void	ft_struct_init(t_game_instance *game_init)
 {
-	t_game_objs *objects;
+	t_game_objs	*objects;
 
 	*game_init = (t_game_instance){0};
 	game_init->map_init.matrice = NULL;

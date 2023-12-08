@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_init.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:27:28 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:41:20 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 //Function to open and read the map file
@@ -78,7 +90,7 @@ int	ft_read_map(int fd, t_game_instance *game_init)
 	char	*buffer;
 
 	game_init->map_init.matrice
-			= ft_calloc(game_init->map_init.first_read_matrice + 1, sizeof(char *));
+		= ft_calloc(game_init->map_init.first_read_matrice + 1, sizeof(char *));
 	if (!game_init->map_init.matrice)
 	{
 		ft_free_map(game_init);

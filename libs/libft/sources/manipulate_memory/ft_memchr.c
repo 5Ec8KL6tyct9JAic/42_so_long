@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:25:47 by dvalerio          #+#    #+#             */
-/*   Updated: 2022/10/18 12:58:20 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:15:24 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-

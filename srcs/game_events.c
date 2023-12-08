@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_events.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:27:38 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:32:27 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 void	ft_locate_player(t_game_instance *game_init)
 {
-	int col;
-	int row;
+	int	col;
+	int	row;
 
 	row = 0;
-	while(game_init->map_init.matrice[row] != NULL)
+	while (game_init->map_init.matrice[row] != NULL)
 	{
 		col = 0;
 		while (game_init->map_init.matrice[row][col] != '\0')
@@ -23,10 +35,10 @@ void	ft_locate_player(t_game_instance *game_init)
 	}
 }
 
-int ft_print_shell(t_game_instance *game_init)
+int	ft_print_shell(t_game_instance *game_init)
 {
-	static int previous_count_movements = -1;
-	int 		current_count_movements;
+	static int	previous_count_movements = -1;
+	int			current_count_movements;
 
 	current_count_movements = game_init->game_data.count_movements;
 	if (current_count_movements != previous_count_movements)
@@ -37,11 +49,11 @@ int ft_print_shell(t_game_instance *game_init)
 	return (1);
 }
 
-int ft_events_pressed(t_game_instance *game_init, int column, int row)
+int	ft_events_pressed(t_game_instance *game_init, int column, int row)
 {
 	int	new_row;
-	int new_col;
-	int current_title;
+	int	new_col;
+	int	current_title;
 
 	ft_locate_player(game_init);
 	new_row = game_init->positions_init.player_row + row;
@@ -58,13 +70,11 @@ int ft_events_pressed(t_game_instance *game_init, int column, int row)
 			game_init->game_data.count_collectible--;
 		game_init->game_data.count_movements++;
 	}
-	else if (current_title == EXIT && game_init->game_data.count_collectible == 0)
+	else if (current_title == EXIT
+		&& game_init->game_data.count_collectible == 0)
 		ft_win(game_init);
-	return	(ft_print_shell(game_init));
+	return (ft_print_shell(game_init));
 }
-
-
-
 
 void	ft_gameplay_start(t_game_instance *game_init)
 {

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:16:51 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:17:37 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-int ft_printarg(va_list args, char c)
+int	ft_printarg(va_list args, char c)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (c == 'c')
@@ -23,19 +35,14 @@ int ft_printarg(va_list args, char c)
 		size += ft_printhex(va_arg(args, unsigned int), 'X');
 	else if (c == '%')
 		size += ft_putchar('%');
-	else if (c == 'n')
-	{
-		ft_putchar('\n');
-		size++;
-	}
 	return (size);
 }
 
-int ft_printf(char const *str, ...)
+int	ft_printf(char const *str, ...)
 {
-	va_list args;
-	int i;
-	int size;
+	va_list	args;
+	int		i;
+	int		size;
 
 	i = 0;
 	size = 0;
@@ -45,12 +52,6 @@ int ft_printf(char const *str, ...)
 		if (str[i] == '%' && str[i + 1] != '%')
 		{
 			size += ft_printarg(args, str[i + 1]);
-			i++;
-		}
-		else if (str[i] == '%' && str[i + 1] == '%')
-		{
-			ft_putchar('%');
-			size++;
 			i++;
 		}
 		else

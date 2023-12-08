@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_init_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:27:30 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:40:57 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-int ft_map_extension(char *map)
+int	ft_map_extension(char *map)
 {
 	char		*extension;
 	char		*file_extension;
-	static int 	file_count;
+	static int	file_count;
 
 	file_count = 0;
 	extension = ".ber";
@@ -36,8 +48,8 @@ int	get_rows_count(t_game_instance *game_init)
 	while (game_init->map_init.matrice[row_index])
 	{
 		row_len = ft_strlen(game_init->map_init.matrice[row_index])
-				  - (game_init->map_init.matrice[row_index]
-					 [ft_strlen(game_init->map_init.matrice[row_index]) - 1] == '\n');
+			- (game_init->map_init.matrice[row_index]
+			[ft_strlen(game_init->map_init.matrice[row_index]) - 1] == '\n');
 		if (row_len != game_init->map_init.cols_matrice)
 		{
 			game_init->map_init.rows_matrice = 0;
@@ -47,11 +59,11 @@ int	get_rows_count(t_game_instance *game_init)
 		row_index++;
 	}
 	game_init->map_init.size_matrice = game_init->map_init.rows_matrice
-									   * game_init->map_init.cols_matrice;
+		* game_init->map_init.cols_matrice;
 	game_init->map_init.resolutions.settings_map_width
-			= game_init->map_init.cols_matrice;
+		= game_init->map_init.cols_matrice;
 	game_init->map_init.resolutions.settings_map_height
-			= game_init->map_init.rows_matrice;
+		= game_init->map_init.rows_matrice;
 	return (1);
 }
 

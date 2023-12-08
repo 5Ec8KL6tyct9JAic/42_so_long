@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:13:43 by dvalerio          #+#    #+#             */
-/*   Updated: 2022/10/20 11:16:44 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:13:31 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-/*
-int main()
-{
-	char str[] = "+123";
-	int res;
-	res = ft_atoi(str);
-	printf("%d\n", res);
-	return 0;
-
-}*/

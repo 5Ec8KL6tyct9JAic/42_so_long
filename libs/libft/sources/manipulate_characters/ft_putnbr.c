@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvalerio <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:21:14 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/04/21 08:59:14 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:16:33 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	ft_putnbr(int n)
 	return (ft_len(n));
 }
 
-int    ft_putnbr_unsigned(unsigned int number)
+int	ft_putnbr_unsigned(unsigned int number)
 {
-    unsigned int    nbr;
+	unsigned int	nbr;
 
-    nbr = 0;
-    if (number <= 9)
-        return (ft_putchar((number + 48)));
-    else
-    {
-        nbr += ft_putnbr_unsigned(number / 10);
-        nbr += ft_putchar((number % 10) + 48);
-    }
-    return (nbr);
+	nbr = 0;
+	if (number <= 9)
+		return (ft_putchar((number + 48)));
+	else
+	{
+		nbr += ft_putnbr_unsigned(number / 10);
+		nbr += ft_putchar((number % 10) + 48);
+	}
+	return (nbr);
 }

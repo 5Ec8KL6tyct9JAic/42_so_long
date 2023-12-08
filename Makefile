@@ -24,7 +24,7 @@ UP = "\033[A"
 CUT = "\033[K"
 
 CFILES = \
- 		srcs/errors.c\
+		srcs/errors.c\
 		srcs/draw.c\
 		srcs/exit_actions.c\
 		srcs/free.c\

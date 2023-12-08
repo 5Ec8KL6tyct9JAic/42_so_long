@@ -1,15 +1,24 @@
-// so_long.h
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/08 15:28:12 by dvalerio          #+#    #+#             */
+/*   Updated: 2023/12/08 15:55:01 by dvalerio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
 # include "../libs/mlx_macos/mlx.h"
-# include "../libs/libft/includes/libft.h"
+# include "../libs/Libft/includes/libft.h"
 
 # include "../include/custom_letters.h"
 # include <fcntl.h> // Read
 # include <string.h> // Strerror
-
 
 /// GAME OBJECTS KEYS
 # define PLAYER 'P'
