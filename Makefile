@@ -2,13 +2,13 @@ NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -arch arm64
+CFLAGS = -Wall -Wextra -Werror -g
 
 MLX_PATH = ./libs/mlx_macos
 
 MLX_LIB = $(MLX_PATH)/libmlx.a
 
-MLX_FLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit -arch arm64
+MLX_FLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 
 LIBFT_PATH = ./libs/libft
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvalerio <dvalerio@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:32 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/20 13:54:13 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:31:20 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void	ft_struct_init(t_game_instance *game_init)
 	if (objects == NULL)
 		ft_error_map(12);
 	game_init->game_objs = *objects;
-	free (objects);	
+	free (objects);
 	return ;
 }
