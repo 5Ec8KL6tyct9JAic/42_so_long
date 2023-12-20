@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:41 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/08 15:35:34 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:07:49 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ int	ft_check_keyboard(int key, t_game_instance *game_init)
 	return (0);
 }
 
+// Just a to be continue for keyboard 
 int	ft_non_special(int key, t_game_instance *game_init)
 {
 	if (key == ESC)
 	{
-		ft_printf("\n Meow :(\n");
+		ft_printf("\nOh, is this game a little hard for you? :c\n");
 		ft_exit_program(game_init);
 	}
 	else if (key == RESTART)
@@ -51,11 +52,12 @@ int	ft_non_special(int key, t_game_instance *game_init)
 	return (0);
 }
 
+// Auxiliary Function  : ft_events_pressed
 void	ft_win(t_game_instance *game_init)
 {
 	game_init->map_init.matrice[game_init->positions_init.player_row]
 	[game_init->positions_init.player_col] = EMPTY;
 	game_init->game_data.count_movements++;
-	ft_printf("\n Meow :) \n");
+	ft_printf("\nGreat! You have found all the stars in the game.\n");
 	ft_exit_program(game_init);
 }

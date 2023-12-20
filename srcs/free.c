@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:42 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/20 13:28:41 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:07:15 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_free_map(t_game_instance *game_init)
 	return ;
 }
 
+// Function to free all images.xpm
 void	ft_free_img(t_game_instance *game_init)
 {
 	mlx_destroy_image(game_init->mlx_ptr, game_init->game_objs.player_up);

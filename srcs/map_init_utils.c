@@ -6,37 +6,35 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:30 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/08 15:40:57 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:08:49 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ft_map_extension(char *map)
+// Function to calculate the dimensions of the game map by counting
+//		the number of rows, columns and matrice
+int	ft_map_dimensions(t_game_instance *game_init)
 {
-	char		*extension;
-	char		*file_extension;
-	static int	file_count;
+	game_init->map_init.cols_matrice = get_cols_count(&game_init->map_init);
+	if (game_init->map_init.cols_matrice == 0)
+		return (0);
+	return (get_rows_count(game_init));
+}
 
-	file_count = 0;
-	extension = ".ber";
-	file_extension = ft_strrchr(map, '.');
-	if (map[ft_strlen(map)-1] == '/')
+int	get_cols_count(t_map_data *map_init)
+{
+	char	*row;
+	int		cols_count;
+
+	row = map_init->matrice[0];
+	cols_count = 0;
+	while (*row && *row != '\n')
 	{
-		ft_error_map(21);
-		return (0);
+		cols_count++;
+		row++;
 	}
-	else if (!file_extension || !ft_strcmp(file_extension, ""))
-		return (0);
-	else if (!ft_strcmp(file_extension, extension))
-	{
-		if (file_count >= MAX_FILES)
-			return (0);
-		file_count++;
-	}
-	else
-		return (0);
-	return (1);
+	return (cols_count);
 }
 
 int	get_rows_count(t_game_instance *game_init)
@@ -67,25 +65,30 @@ int	get_rows_count(t_game_instance *game_init)
 	return (1);
 }
 
-int	get_cols_count(t_map_data *map_init)
+// Function to checks if the map has a valid .ber extension and path/
+int	ft_map_extension(char *map)
 {
-	char	*row;
-	int		cols_count;
+	char		*extension;
+	char		*file_extension;
+	static int	file_count;
 
-	row = map_init->matrice[0];
-	cols_count = 0;
-	while (*row && *row != '\n')
+	file_count = 0;
+	extension = ".ber";
+	file_extension = ft_strrchr(map, '.');
+	if (map[ft_strlen(map) - 1] == '/')
 	{
-		cols_count++;
-		row++;
-	}
-	return (cols_count);
-}
-
-int	ft_map_dimensions(t_game_instance *game_init)
-{
-	game_init->map_init.cols_matrice = get_cols_count(&game_init->map_init);
-	if (game_init->map_init.cols_matrice == 0)
+		ft_error_map(21);
 		return (0);
-	return (get_rows_count(game_init));
+	}
+	else if (!file_extension || !ft_strcmp(file_extension, ""))
+		return (0);
+	else if (file_extension && !ft_strcmp(file_extension, extension))
+	{
+		if (file_count >= MAX_FILES)
+			return (0);
+		file_count++;
+	}
+	else
+		return (0);
+	return (1);
 }

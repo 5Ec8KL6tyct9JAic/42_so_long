@@ -6,13 +6,12 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:28 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/08 15:41:20 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:09:26 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-//Function to open and read the map file
 int	ft_open_map(char *map, t_game_instance *game_init)
 {
 	int			fd;
@@ -41,11 +40,13 @@ int	ft_open_map(char *map, t_game_instance *game_init)
 }
 
 // Function to count the map content for ft_calloc
+// (reserved space to ft_read_map() function)
 int	ft_read_count_map(char *map)
 {
 	int	fd;
 	int	count;
 
+	count = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		return (0);
