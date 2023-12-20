@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:28:12 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/12 10:52:29 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:54:19 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libs/mlx_macos/mlx.h"
-# include "../libs/Libft/includes/libft.h"
+# include "../libs/libft/includes/libft.h"
 
 # include "../include/custom_letters.h"
 # include <fcntl.h> // Read
