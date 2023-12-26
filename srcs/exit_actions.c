@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:45 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/20 14:02:44 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/26 15:26:07 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_exit_program(t_game_instance *game_init)
 	ft_free_map(game_init);
 	ft_cleanup(game_init);
 	mlx_destroy_window(game_init->mlx_ptr, game_init->win_ptr);
-	free(game_init->win_ptr);
 	free(game_init->mlx_ptr);
 	exit(0);
 	return (0);
@@ -35,7 +34,6 @@ void	ft_reset_game(t_game_instance *game_init)
 	free(game_init->resolutions_init.settings_name_window);
 	free(game_init->resolutions_init.settings_name_map);
 	mlx_destroy_window(game_init->mlx_ptr, game_init->win_ptr);
-	free(game_init->win_ptr);
 	free(game_init->mlx_ptr);
 	main(game_init->argc_tmp, game_init->argv_tmp);
 }
