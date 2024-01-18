@@ -6,7 +6,7 @@
 /*   By: dvalerio <dvalerio@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:30 by dvalerio          #+#    #+#             */
-/*   Updated: 2024/01/18 09:01:54 by dvalerio         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:26:08 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int	ft_map_dimensions(t_game_instance *game_init)
 {
 	game_init->map_init.cols_matrice = get_cols_count(&game_init->map_init);
 	printf("ROWS INIT MAP MATRICE %d\n", get_rows_count(game_init));
+	printf("COLS INIT MAP MATRICE %d\n", get_cols_count(&game_init->map_init));
+	if (game_init->map_init.rows_matrice == 0)
+		printf("C'est ici c'est cassé\n");
 	if (game_init->map_init.cols_matrice == 0)
 		return (0);
+	printf("\n");
 	return (get_rows_count(game_init));
 }
 
@@ -35,37 +39,39 @@ int	get_cols_count(t_map_data *map_init)
 		cols_count++;
 		row++;
 	}
+	printf("Number of cols %d\n", cols_count);
 	return (cols_count);
 }
 
-int get_rows_count(t_game_instance *game_init)
+int	get_rows_count(t_game_instance *game_init)
 {
-    int row_index;
-    int row_len;
+	int	row_index;
+	int	row_len;
 
-    row_index = 0;
-    while (game_init->map_init.matrice[row_index])
-    {
-        row_len = ft_strlen(game_init->map_init.matrice[row_index]);
-        if (game_init->map_init.matrice[row_index][row_len - 1] != '\n')
-        {
-            row_len--; // Adjust for the newline character if it exists
-        }
-
-        if (row_len != game_init->map_init.cols_matrice && 
-            !(row_index == game_init->map_init.rows_matrice - 1 && row_len == game_init->map_init.cols_matrice - 1))
-        {
-            game_init->map_init.rows_matrice = 0;
-            return (0);
-        }
-
-        game_init->map_init.rows_matrice++;
-        row_index++;
-    }
-    game_init->map_init.size_matrice = game_init->map_init.rows_matrice * game_init->map_init.cols_matrice;
-    game_init->map_init.resolutions.settings_map_width = game_init->map_init.cols_matrice;
-    game_init->map_init.resolutions.settings_map_height = game_init->map_init.rows_matrice;
-    return (1);
+	row_index = 0;
+	while (game_init->map_init.matrice[row_index])
+	{
+		row_len = ft_strlen(game_init->map_init.matrice[row_index])
+				- (game_init->map_init.matrice[row_index]
+					[ft_strlen(game_init->map_init.matrice[row_index]) - 1] == "\n");
+			printf("row index avant condition if : %d\n", row_index);
+		if (row_len != game_init->map_init.cols_matrice)
+		{
+			game_init->map_init.rows_matrice = 0;
+			return (0);
+			printf("row index avant IT : %d", row_index);
+		}
+		game_init->map_init.rows_matrice++;
+		row_index++;
+		printf("row index apres IT : %d", row_index);
+	}
+	game_init->map_init.size_matrice = game_init->map_init.rows_matrice
+		* game_init->map_init.cols_matrice;
+	game_init->map_init.resolutions.settings_map_width
+		= game_init->map_init.cols_matrice;
+	game_init->map_init.resolutions.settings_map_height
+		= game_init->map_init.rows_matrice;
+	return (1);
 }
 
 // Function to checks if the map has a valid .ber extension and path/
