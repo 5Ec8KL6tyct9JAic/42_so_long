@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvalerio <dvalerio@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:28 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/20 18:09:26 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:59:09 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	ft_read_count_map(char *map)
 	if (fd == -1)
 		return (0);
 	count = ft_count_lines(fd);
+	printf("COUNT LINES %d\n", count);
 	if (close(fd) == -1)
 		return (0);
 	return (count);
@@ -114,6 +115,7 @@ int	ft_read_map(int fd, t_game_instance *game_init)
 
 int	ft_check_read(t_game_instance *game_init)
 {
+	
 	if (game_init->map_init.matrice[0] == NULL
 		|| !ft_map_dimensions(game_init) || !ft_is_valid_map(game_init))
 	{

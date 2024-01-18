@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvalerio <dvalerio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dvalerio <dvalerio@42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:27:20 by dvalerio          #+#    #+#             */
-/*   Updated: 2023/12/20 18:09:53 by dvalerio         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:54:48 by dvalerio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,22 @@
 //	functions and returning 1 if all are true, 0 otherwise
 int	ft_is_valid_map(t_game_instance *game_init)
 {
+	printf("HELLO\n");
 	if (!(ft_count_map_objects(game_init)))
+	{
+		printf("COUNT\n");
 		return (0);
+	}
 	if (!(ft_is_map_shape_valid(game_init)))
+	{
+		printf("SHAPE\n");
 		return (0);
+	}
 	if (!(ft_is_wall(game_init)))
+	{
+		printf("WALL\n");
 		return (0);
+	}
 	return (1);
 }
 
